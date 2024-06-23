@@ -1,0 +1,41 @@
+.container {
+  background-color: var(--header-bg-color);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  margin-right: 10px;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.number {
+  font-family: var(--second-family);
+  font-size: 3.75rem;
+  line-height: 6.44rem;
+  color: var(--alert-color);
+}
+
+.label {
+  font-size: 12px;
+  color: #999;
+}
+
+.colon {
+  font-family: var(--font-family);
+  font-size: 3.75rem;
+  line-height: 6.44rem;
+  color: var(--alert-color);
+}

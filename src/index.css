@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Rubik:wght@300..900&display=swap');
+
+@font-face {
+  font-family: PT Root UI;
+  src: url(./assets/fonts/pt-root-ui_medium.ttf);
+}
+
+@font-face {
+  font-family: Bebas Neue Cyrillic;
+  src: url(./assets/fonts/Bebas_Neue.ttf);
+}
+
+@font-face {
+  font-family: PT Root UI;
+  src: url(./assets/fonts/pt-root-ui_medium.ttf);
+}
+
+:root {
+  --alert-color: #fd4d35;
+  --accent-color: #01b9c5;
+
+  --bg-color: #f5f7f7;
+  --header-bg-color: #ffffff;
+  --input-border-color: #c0c0c0;
+
+  --text-primary-color: #2d3242;
+  --text-secondary-color: #2f4353;
+  --text-third-color: #95979f;
+  --text-fourth-color: #818798;
+  --text-contrast-color: #ffffff;
+
+  --font-family: 'PT Root UI', sans-serif;
+  --second-family: 'Bebas Neue Cyrillic', sans-serif;
+  --third-family: 'Rubik', sans-serif;
+  --font3: 'Bebas Neue', sans-serif;
+  --font4: 'Inter', sans-serif;
+}
+
+/* css reset */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font: inherit;
+  /* background-color: rgba(0, 136, 255, 0.2); */
+}
+
+ul {
+  list-style: none;
+}
+
+/* body  */
+
+body {
+  min-height: 100vh;
+  min-height: 100svh;
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+}
+/* text */
+
+h1 {
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 0.9rem + 2.56vw, 2.5rem);
+  line-height: 110%;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--text-primary-color);
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 1.12rem;
+  line-height: 130%;
+  color: var(--text-primary-color);
+}
+
+p {
+  font-weight: 400;
+  font-size: clamp(0.88rem, 2.8vw, 1rem);
+  line-height: 150%;
+  color: var(--text-secondary-color);
+}
+
+.text_small {
+  font-size: 0.88rem;
+}
+
+/* button */
+
+button {
+  font-size: 0.88rem;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.86em 1.71em;
+  cursor: pointer;
+  background: var(--cta-color);
+  transition: all 0.4s;
+  color: var(--text-button-color);
+}
+
+button:focus,
+button:focus-visible,
+button:hover {
+  border-color: var(--cta-hover-color);
+  background: var(--cta-hover-color);
+}
+
+/* links */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--cta-color);
+}
+
+/* inputs */
