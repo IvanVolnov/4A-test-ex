@@ -1,6 +1,7 @@
 import './App.css';
 import MainContent from './components/MainContent';
 import TimerHeader from './components/TimerHeader';
+import Modal from './components/Modal';
 import { DataContextProvider } from './context/DataContext';
 import { TimerContextProvider } from './context/TimerContext';
 
@@ -10,6 +11,7 @@ function App() {
       <DataContextProvider>
         <TimerHeader />
         <MainContent />
+        <Modal />
       </DataContextProvider>
     </TimerContextProvider>
   );

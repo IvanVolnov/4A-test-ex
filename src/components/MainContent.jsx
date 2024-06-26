@@ -1,10 +1,11 @@
 import { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
 import PlanRadioMain from './UI/PlanRadioMain';
+import { TimerContext } from '../context/TimerContext';
 
 export default function MainContent() {
   const { data, loading, error } = useContext(DataContext);
-  // console.log(data, loading, error);
+  const { discount } = useContext(TimerContext);
   return (
     <main>
       <h1>Выберите подходящий тарифный план</h1>
@@ -14,10 +15,15 @@ export default function MainContent() {
           {error.message}
         </p>
       )}
+
       <form>
-        {data.map((el) => (
-          <PlanRadioMain key={el.id} data={el} />
-        ))}
+        {discount
+          ? data
+              .filter((el) => el.isPopular)
+              .map((el) => <PlanRadioMain key={el.id} data={el} />)
+          : data
+              .filter((el) => !el.isPopular && !el.isDiscount)
+              .map((el) => <PlanRadioMain key={el.id} data={el} />)}
       </form>
     </main>
   );

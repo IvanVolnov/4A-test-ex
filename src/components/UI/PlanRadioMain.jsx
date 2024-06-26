@@ -1,11 +1,13 @@
 export default function PlanRadioMain(data) {
   const { id, name, price, isPopular } = data.data;
-  console.log(data);
   return (
-    <label>
+    <label
+      style={{ marginLeft: '2rem', display: 'flex', flexDirection: 'column' }}
+    >
       <input type='radio' name='plan' value='free' />
       <span>{name}</span>
       <span>{price}</span>
+      {isPopular && <span>Skidon!!!</span>}
     </label>
   );
 }
