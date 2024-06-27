@@ -1,0 +1,47 @@
+/* Base */
+.btn {
+  cursor: pointer;
+  border: 3px solid;
+  border-radius: 3.75rem;
+  /* width: 100%; */
+  color: var(--text-contrast-color);
+  transition: all 0.4s;
+  font-size: 1.25rem;
+}
+
+/* Sizes */
+
+.medium {
+  text-transform: uppercase;
+  padding: 1.56rem 6.06rem;
+}
+
+.small {
+  text-transform: capitalize;
+  padding: 1.06rem 2.63rem;
+  font-size: 1.25rem;
+}
+
+/* Colors */
+.dark {
+  background-color: var(--alert-color);
+  border-color: var(--alert-color);
+}
+
+.dark:hover,
+.dark:focus,
+.dark:focus-visible {
+  border-color: var(--text-primary-color);
+}
+
+/* .disabled {
+  cursor: not-allowed;
+  color: var(--color-text-dark);
+  background-color: transparent;
+  border-color: var(--color-second);
+}
+
+.disabled:hover {
+  color: var(--color-text-dark);
+  background-color: var(--color-main-light);
+} */

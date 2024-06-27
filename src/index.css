@@ -18,6 +18,7 @@
 :root {
   --alert-color: #fd4d35;
   --accent-color: #01b9c5;
+  --links-color: #2d97f9;
 
   --bg-color: #f5f7f7;
   --header-bg-color: #ffffff;
@@ -90,26 +91,6 @@ p {
   font-size: 0.88rem;
 }
 
-/* button */
-
-button {
-  font-size: 0.88rem;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.86em 1.71em;
-  cursor: pointer;
-  background: var(--cta-color);
-  transition: all 0.4s;
-  color: var(--text-button-color);
-}
-
-button:focus,
-button:focus-visible,
-button:hover {
-  border-color: var(--cta-hover-color);
-  background: var(--cta-hover-color);
-}
-
 /* links */
 
 a {
@@ -117,7 +98,7 @@ a {
   color: inherit;
   font-weight: 400;
   line-height: 150%;
-  color: var(--cta-color);
+  color: var(--links-color);
 }
 
 /* inputs */

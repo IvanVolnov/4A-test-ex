@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 const TimerContext = createContext();
 
 function TimerContextProvider({ children }) {
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(120);
   const [discount, setDiscount] = useState(true);
   const [popup, setPopup] = useState(false);
 

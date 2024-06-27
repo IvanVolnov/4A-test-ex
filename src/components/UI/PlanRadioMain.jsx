@@ -4,7 +4,12 @@ export default function PlanRadioMain(data) {
     <label
       style={{ marginLeft: '2rem', display: 'flex', flexDirection: 'column' }}
     >
-      <input type='radio' name='plan' value='free' />
+      <input
+        type='radio'
+        name='radioData'
+        value={JSON.stringify({ id, name, price, isPopular })}
+        required
+      />
       <span>{name}</span>
       <span>{price}</span>
       {isPopular && <span>Skidon!!!</span>}
