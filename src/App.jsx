@@ -4,6 +4,7 @@ import TimerHeader from './components/TimerHeader';
 import Modal from './components/Modal';
 import { DataContextProvider } from './context/DataContext';
 import { TimerContextProvider } from './context/TimerContext';
+import { AnimatePresence } from 'framer-motion';
 
 function App() {
   return (
@@ -11,7 +12,6 @@ function App() {
       <DataContextProvider>
         <TimerHeader />
         <MainContent />
-        <Modal />
       </DataContextProvider>
     </TimerContextProvider>
   );

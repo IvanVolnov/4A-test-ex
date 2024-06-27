@@ -2,12 +2,20 @@ import { useContext } from 'react';
 import { DataContext } from '../context/DataContext';
 import PlanRadioMain from './UI/PlanRadioMain';
 import { TimerContext } from '../context/TimerContext';
+import { AnimatePresence } from 'framer-motion';
+import Modal from './Modal';
 
 export default function MainContent() {
   const { data, loading, error } = useContext(DataContext);
-  const { discount } = useContext(TimerContext);
+  const { discount, popup, setPopup } = useContext(TimerContext);
+  function closeModal() {
+    setPopup(false);
+  }
   return (
     <main>
+      <AnimatePresence>
+        {popup && <Modal onClose={closeModal} />}
+      </AnimatePresence>
       <h1>Выберите подходящий тарифный план</h1>
       {error && (
         <p>
