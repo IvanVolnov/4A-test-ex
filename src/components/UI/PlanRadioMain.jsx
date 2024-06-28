@@ -1,7 +1,25 @@
 import styles from './PlanRadioMain.module.css';
 
 export default function PlanRadioMain(data) {
-  const { id, name, price, isPopular } = data.data;
+  const {
+    id,
+    name,
+    price,
+    isPopular,
+    oldPrice = 1885,
+    discountValue = 50,
+  } = data.data;
+  const message =
+    name === '1 неделя'
+      ? 'Чтобы просто начать 👍🏻'
+      : name === '1 месяц'
+      ? 'Привести тело впорядок 💪🏻'
+      : name === '3 месяца'
+      ? 'Изменить образ жизни 🔥'
+      : name === 'навсегда'
+      ? 'Всегда быть в форме и поддерживать своё здоровье ⭐️'
+      : '';
+
   return (
     <label className={styles.item_frame}>
       <input
@@ -10,9 +28,13 @@ export default function PlanRadioMain(data) {
         value={JSON.stringify({ id, name, price, isPopular })}
         required
       />
-      <span>{name}</span>
-      <span>{price}</span>
-      {isPopular && <span>Skidon!!!</span>}
+      <div className={styles.item_name}>{name}</div>
+      <div className={styles.price_container}>
+        <div className={styles.item_price}>{price}₽</div>
+        <div className={styles.item_price_old}>{oldPrice}₽</div>
+      </div>
+      {isPopular && <div className={styles.discount}>-{discountValue}%</div>}
+      <div className={styles.item_message}>{message}</div>
     </label>
   );
 }
