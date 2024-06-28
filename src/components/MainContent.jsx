@@ -18,14 +18,14 @@ export default function MainContent() {
     setPopup(false);
   }
   return (
-    <main>
+    <main className={styles.main_container}>
       {popup && <Modal onClose={closeModal} />}
 
       <h1>Выберите подходящий тарифный план</h1>
       <div className={styles.content_container}>
         <picture>
-          <source media='(max-width: 386px)' srcSet={manImgMobile} />
-          <source media='(min-width: 385px)' srcSet={manImg} />
+          <source media='(max-width: 800px)' srcSet={manImgMobile} />
+          <source media='(min-width: 800px)' srcSet={manImg} />
           <img
             className={styles.photo}
             src={manImg}
@@ -50,16 +50,20 @@ export default function MainContent() {
                   .filter((el) => !el.isPopular && !el.isDiscount)
                   .map((el) => <PlanRadioMain key={el.id} data={el} />)}
           </div>
-          <p>
+          <p className={styles.stats}>
             Следуя плану на 3 месяца, люди получают в 2 раза лучший результат,
             чем за 1 месяц
           </p>
-          <CustomCheckbox name='termsAccepted' isRequired={true}>
+          <CustomCheckbox
+            name='termsAccepted'
+            isRequired={true}
+            className={styles.checkbox}
+          >
             Я соглашаюсь с <a href='#'>Правилами сервиса</a> и условиями{' '}
             <a href='#'>Публичной оферты.</a>
           </CustomCheckbox>
           <Button type='submit'>Купить</Button>
-          <p>
+          <p className={styles.terms}>
             Нажимая «Купить», Пользователь соглашается на автоматическое
             списание денежных средств по истечению купленного периода.
             Дальнейшие списания по тарифам участвующим в акции осуществляются по

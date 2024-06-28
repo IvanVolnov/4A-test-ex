@@ -1,9 +1,9 @@
+import styles from './PlanRadioMain.module.css';
+
 export default function PlanRadioMain(data) {
   const { id, name, price, isPopular } = data.data;
   return (
-    <label
-      style={{ marginLeft: '2rem', display: 'flex', flexDirection: 'column' }}
-    >
+    <label className={styles.item_frame}>
       <input
         type='radio'
         name='radioData'
