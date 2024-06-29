@@ -1,14 +1,30 @@
 import styles from './PlanRadioMain.module.css';
 
+import { useState, useEffect } from 'react';
+
 export default function PlanRadioMain(data) {
   const {
     id,
     name,
     price,
     isPopular,
-    oldPrice,
+    initalPrice = 5000,
     discountValue = 50,
   } = data.data;
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 800);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const message =
     name === '1 неделя'
       ? 'Чтобы просто начать 👍🏻'
@@ -23,13 +39,13 @@ export default function PlanRadioMain(data) {
   return (
     <label
       className={`${styles.item_frame} ${
-        name === 'навсегда' ? styles.last_frame : ''
+        name === 'навсегда' && !isMobile ? styles.last_frame : ''
       }`}
     >
       <input
         type='radio'
         name='radioData'
-        value={JSON.stringify({ id, name, price, isPopular })}
+        value={JSON.stringify({ id, name, price, isPopular, initalPrice })}
         required
       />
       <div className={styles.item_name}>{name}</div>
@@ -37,13 +53,17 @@ export default function PlanRadioMain(data) {
         {isPopular ? (
           <>
             <div className={styles.item_price}>{price}₽</div>
-            <div className={styles.item_price_old}>{oldPrice}₽</div>
+            <div className={styles.item_price_old}>{initalPrice}₽</div>
           </>
         ) : (
-          <div className={styles.item_price}>{oldPrice}₽</div>
+          <div className={styles.item_price}>{initalPrice}₽</div>
         )}
       </div>
-      {isPopular && <div className={styles.discount}>-{discountValue}%</div>}
+      {isPopular && (
+        <div className={styles.discount_container}>
+          <div className={styles.discount_text}>-{discountValue}%</div>
+        </div>
+      )}
       <div className={styles.item_message}>{message}</div>
     </label>
   );

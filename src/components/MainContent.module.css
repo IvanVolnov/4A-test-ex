@@ -54,7 +54,7 @@
 
   .radio_group {
     row-gap: 0.63rem;
-    grid-template-columns: repeat(auto-fill, minmax(17.44rem, 11.69rem));
+    grid-template-columns: repeat(auto-fill, minmax(12.69rem, 17.44rem));
     grid-template-rows: repeat(auto-fill, 8.75rem);
     margin-bottom: clamp(0.75rem, 0.602rem + 0.263vw, 0.799rem);
   }

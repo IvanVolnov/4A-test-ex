@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import styles from './TimerHeader.module.css';
 import { TimerContext } from '../context/TimerContext';
 import { motion } from 'framer-motion';
+import { BLINKING_VALUE } from '../config';
 
 export default function TimerHeader() {
   const { timer } = useContext(TimerContext);
@@ -25,7 +26,7 @@ export default function TimerHeader() {
       <div className={styles.countdown}>
         <div className={styles.time}>
           <motion.div
-            animate={timer <= 5 ? ['blink', 'alert'] : 'normal'}
+            animate={timer <= BLINKING_VALUE ? ['blink', 'alert'] : 'normal'}
             variants={variants}
             className={styles.number}
           >
@@ -34,7 +35,9 @@ export default function TimerHeader() {
           <div className={styles.label}>минут</div>
         </div>
         <motion.div
-          animate={timer <= 5 ? ['blink', 'alert'] : ['blink', 'normal']}
+          animate={
+            timer <= BLINKING_VALUE ? ['blink', 'alert'] : ['blink', 'normal']
+          }
           variants={variants}
           className={styles.colon}
         >
@@ -42,7 +45,7 @@ export default function TimerHeader() {
         </motion.div>
         <div className={styles.time}>
           <motion.div
-            animate={timer <= 5 ? ['blink', 'alert'] : 'normal'}
+            animate={timer <= BLINKING_VALUE ? ['blink', 'alert'] : 'normal'}
             variants={variants}
             className={styles.number}
           >

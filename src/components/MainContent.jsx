@@ -52,7 +52,6 @@ export default function MainContent() {
                     <PlanRadioMain
                       key={el.id}
                       data={el}
-                      oldPrice={() => findInitPrice(el, data)}
                     />
                   ))
               : data
@@ -61,7 +60,6 @@ export default function MainContent() {
                     <PlanRadioMain
                       key={el.id}
                       data={el}
-                      oldPrice={() => findInitPrice(el, data)}
                     />
                   ))}
           </div>

@@ -1,9 +1,10 @@
 import { createContext, useEffect, useState } from 'react';
+import { POPUP_DELAY, TIMER_VALUE } from '../config';
 
 const TimerContext = createContext();
 
 function TimerContextProvider({ children }) {
-  const [timer, setTimer] = useState(10);
+  const [timer, setTimer] = useState(TIMER_VALUE);
   const [discount, setDiscount] = useState(true);
   const [popup, setPopup] = useState(false);
 
@@ -14,7 +15,7 @@ function TimerContextProvider({ children }) {
           clearInterval(interval);
           setTimeout(() => {
             setPopup(true);
-          }, 3000);
+          }, POPUP_DELAY * 1000);
           setDiscount(false);
           return 0;
         }
