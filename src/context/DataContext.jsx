@@ -7,6 +7,19 @@ function DataContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  function findInitPrice(el, data) {
+    console.log('Finding initial price for:', el); // Log the element
+    console.log('Data:', data); // Log the data
+
+    const initPlan = data.find(
+      (x) => el.name === x.name && !x.isPopular && !x.isDiscount
+    );
+    console.log('Initial plan found:', initPlan); // Log the found initial plan
+
+    if (!initPlan) return;
+    return initPlan.price;
+  }
+
   useEffect(() => {
     fetch('https://t-pay.iqfit.app/subscribe/list-test')
       .then((response) => {

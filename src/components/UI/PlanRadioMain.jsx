@@ -6,7 +6,7 @@ export default function PlanRadioMain(data) {
     name,
     price,
     isPopular,
-    oldPrice = 1885,
+    oldPrice,
     discountValue = 50,
   } = data.data;
   const message =
@@ -21,7 +21,11 @@ export default function PlanRadioMain(data) {
       : '';
 
   return (
-    <label className={styles.item_frame}>
+    <label
+      className={`${styles.item_frame} ${
+        name === 'навсегда' ? styles.last_frame : ''
+      }`}
+    >
       <input
         type='radio'
         name='radioData'
@@ -30,8 +34,14 @@ export default function PlanRadioMain(data) {
       />
       <div className={styles.item_name}>{name}</div>
       <div className={styles.price_container}>
-        <div className={styles.item_price}>{price}₽</div>
-        <div className={styles.item_price_old}>{oldPrice}₽</div>
+        {isPopular ? (
+          <>
+            <div className={styles.item_price}>{price}₽</div>
+            <div className={styles.item_price_old}>{oldPrice}₽</div>
+          </>
+        ) : (
+          <div className={styles.item_price}>{oldPrice}₽</div>
+        )}
       </div>
       {isPopular && <div className={styles.discount}>-{discountValue}%</div>}
       <div className={styles.item_message}>{message}</div>

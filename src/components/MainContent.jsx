@@ -14,9 +14,12 @@ import Button from './UI/Button';
 export default function MainContent() {
   const { data, loading, error } = useContext(DataContext);
   const { discount, popup, setPopup } = useContext(TimerContext);
+  // console.log(data);
+
   function closeModal() {
     setPopup(false);
   }
+
   return (
     <main className={styles.main_container}>
       {popup && <Modal onClose={closeModal} />}
@@ -45,10 +48,22 @@ export default function MainContent() {
             {discount
               ? data
                   .filter((el) => el.isPopular)
-                  .map((el) => <PlanRadioMain key={el.id} data={el} />)
+                  .map((el) => (
+                    <PlanRadioMain
+                      key={el.id}
+                      data={el}
+                      oldPrice={() => findInitPrice(el, data)}
+                    />
+                  ))
               : data
                   .filter((el) => !el.isPopular && !el.isDiscount)
-                  .map((el) => <PlanRadioMain key={el.id} data={el} />)}
+                  .map((el) => (
+                    <PlanRadioMain
+                      key={el.id}
+                      data={el}
+                      oldPrice={() => findInitPrice(el, data)}
+                    />
+                  ))}
           </div>
           <p className={styles.stats}>
             Следуя плану на 3 месяца, люди получают в 2 раза лучший результат,
