@@ -3,10 +3,10 @@
   cursor: pointer;
   border: 3px solid;
   border-radius: 3.75rem;
-  /* width: 100%; */
   color: var(--text-contrast-color);
   transition: all 0.4s;
   font-size: 1.25rem;
+  font-family: var(--third-family);
 }
 
 /* Sizes */
@@ -14,10 +14,10 @@
 .medium {
   text-transform: uppercase;
   padding: 1.56rem 6.06rem;
+  max-width: 17.56rem;
 }
 
 .small {
-  text-transform: capitalize;
   padding: 1.06rem 2.63rem;
   font-size: 1.25rem;
 }
@@ -45,3 +45,9 @@
   color: var(--color-text-dark);
   background-color: var(--color-main-light);
 } */
+
+@media (max-width: 1050px) {
+  .medium {
+    max-width: inherit;
+  }
+}

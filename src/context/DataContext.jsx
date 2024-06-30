@@ -7,17 +7,17 @@ function DataContextProvider({ children }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  function findInitPrice(el, data) {
-    console.log('Finding initial price for:', el); // Log the element
-    console.log('Data:', data); // Log the data
-
-    const initPlan = data.find(
-      (x) => el.name === x.name && !x.isPopular && !x.isDiscount
-    );
-    console.log('Initial plan found:', initPlan); // Log the found initial plan
-
-    if (!initPlan) return;
-    return initPlan.price;
+  function findInitPrice(data) {
+    const dataModified = data.map((el) => {
+      const initPrice = data.find(
+        (x) => el.name === x.name && !x.isPopular && !x.isDiscount
+      ).price;
+      const discountValue =
+        Math.round(((initPrice - el.price) * 100) / initPrice / 10) * 10;
+      return { ...el, initPrice, discountValue };
+    });
+    console.log(dataModified);
+    return dataModified;
   }
 
   useEffect(() => {
@@ -29,7 +29,7 @@ function DataContextProvider({ children }) {
         return response.json();
       })
       .then((data) => {
-        setData(data);
+        setData(findInitPrice(data));
         setLoading(false);
       })
       .catch((error) => {

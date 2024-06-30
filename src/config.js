@@ -1,4 +1,4 @@
-const TIMER_VALUE = 5000;
+const TIMER_VALUE = 1;
 const BLINKING_VALUE = 4;
 const POPUP_DELAY = 3;
 

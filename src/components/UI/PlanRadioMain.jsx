@@ -3,14 +3,7 @@ import styles from './PlanRadioMain.module.css';
 import { useState, useEffect } from 'react';
 
 export default function PlanRadioMain(data) {
-  const {
-    id,
-    name,
-    price,
-    isPopular,
-    initalPrice = 5000,
-    discountValue = 50,
-  } = data.data;
+  const { id, name, price, isPopular, initPrice, discountValue } = data.data;
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 800);
 
@@ -45,7 +38,7 @@ export default function PlanRadioMain(data) {
       <input
         type='radio'
         name='radioData'
-        value={JSON.stringify({ id, name, price, isPopular, initalPrice })}
+        value={JSON.stringify({ id, name, price, isPopular, initPrice })}
         required
       />
       <div className={styles.item_name}>{name}</div>
@@ -53,10 +46,10 @@ export default function PlanRadioMain(data) {
         {isPopular ? (
           <>
             <div className={styles.item_price}>{price}₽</div>
-            <div className={styles.item_price_old}>{initalPrice}₽</div>
+            <div className={styles.item_price_old}>{initPrice}₽</div>
           </>
         ) : (
-          <div className={styles.item_price}>{initalPrice}₽</div>
+          <div className={styles.item_price}>{initPrice}₽</div>
         )}
       </div>
       {isPopular && (
@@ -64,7 +57,11 @@ export default function PlanRadioMain(data) {
           <div className={styles.discount_text}>-{discountValue}%</div>
         </div>
       )}
-      <div className={styles.item_message}>{message}</div>
+      {isMobile && name === 'навсегда' ? (
+        <div className={styles.item_message}>Всегда быть в форме⭐️</div>
+      ) : (
+        <div className={styles.item_message}>{message}</div>
+      )}
     </label>
   );
 }

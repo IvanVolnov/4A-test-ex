@@ -27,8 +27,8 @@ export default function MainContent() {
       <h1>Выберите подходящий тарифный план</h1>
       <div className={styles.content_container}>
         <picture>
-          <source media='(max-width: 800px)' srcSet={manImgMobile} />
-          <source media='(min-width: 800px)' srcSet={manImg} />
+          <source media='(max-width: 1050px)' srcSet={manImgMobile} />
+          <source media='(min-width: 1050px)' srcSet={manImg} />
           <img
             className={styles.photo}
             src={manImg}
@@ -48,20 +48,10 @@ export default function MainContent() {
             {discount
               ? data
                   .filter((el) => el.isPopular)
-                  .map((el) => (
-                    <PlanRadioMain
-                      key={el.id}
-                      data={el}
-                    />
-                  ))
+                  .map((el) => <PlanRadioMain key={el.id} data={el} />)
               : data
                   .filter((el) => !el.isPopular && !el.isDiscount)
-                  .map((el) => (
-                    <PlanRadioMain
-                      key={el.id}
-                      data={el}
-                    />
-                  ))}
+                  .map((el) => <PlanRadioMain key={el.id} data={el} />)}
           </div>
           <p className={styles.stats}>
             Следуя плану на 3 месяца, люди получают в 2 раза лучший результат,

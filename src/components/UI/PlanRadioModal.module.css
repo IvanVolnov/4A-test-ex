@@ -1,0 +1,91 @@
+.item_frame {
+  display: grid;
+  grid-template-rows: repeat(2, 1fr) 2fr;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--input-border-color);
+  border-radius: 1.25rem;
+  background-color: var(--header-bg-color);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.item_frame input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.item_frame:has(input:checked) {
+  border-color: var(--accent-color);
+  background-color: var(--plan-checked-color);
+}
+
+.item_frame:has(input[type='radio']:focus-visible) {
+  background-color: var(--plan-checked-color);
+}
+
+.discount_container {
+  grid-area: 3/2/4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.13rem;
+  width: 3.13rem;
+  margin: 0;
+  background: border-box no-repeat center url('/Star.svg');
+  background-size: cover;
+  color: var(--text-contrast-color);
+}
+
+.item_name {
+  grid-area: 1/1/2/3;
+  font-size: 1.63rem;
+  font-family: var(--second-family);
+  margin-top: 1.63rem;
+  margin-left: 1.63rem;
+}
+
+.radio_custom {
+  grid-area: 1/2/2/3;
+  margin-top: 1.63rem;
+  margin-right: 1.38rem;
+  width: 1rem;
+  height: 1rem;
+  justify-self: end;
+  background-color: transparent;
+  border: 0.28rem solid transparent;
+  border-radius: 50%;
+  outline: 1px solid var(--text-primary-color);
+}
+
+.item_frame:has(input:checked) .radio_custom {
+  background-color: var(--accent-color);
+  border: 0.28rem solid var(--plan-checked-color);
+  outline-color: var(--accent-color);
+}
+
+.item_price {
+  grid-area: 3/1/4/3;
+  font-size: 2.88rem;
+  font-weight: 600;
+  line-height: 3.44rem;
+  letter-spacing: -0.13rem;
+  margin-left: 1.63rem;
+  margin-bottom: 1.25rem;
+}
+
+.item_price_old {
+  font-size: 1.5rem;
+  color: var(--text-third-color);
+  text-decoration: line-through;
+}
+
+@media (max-width: 800px) {
+}
