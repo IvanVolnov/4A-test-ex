@@ -2,10 +2,11 @@ import { useContext } from 'react';
 import styles from './Modal.module.css';
 import { TimerContext } from '../context/TimerContext';
 import { createPortal } from 'react-dom';
-import { motion } from 'framer-motion';
+import { MotionConfig, motion } from 'framer-motion';
 import Button from './UI/Button';
 import PlanRadioModal from './UI/PlanRadioModal';
 import { DataContext } from '../context/DataContext';
+import { handleSubmit } from '../helpers/helpers';
 
 const Modal = ({ onClose }) => {
   const { popup } = useContext(TimerContext);
@@ -18,12 +19,15 @@ const Modal = ({ onClose }) => {
   return createPortal(
     <div className={styles.modalBackdrop} onClick={onClose}>
       <motion.dialog
+        key='modal'
         variants={{
           hidden: { opacity: 0, y: 30 },
           visible: { opacity: 1, y: 0 },
+          exit: { opacity: 0, y: -30 },
         }}
         initial='hidden'
         animate='visible'
+        exit='exit'
         open
         className={styles.modalContent}
         onClick={(e) => e.stopPropagation()}
@@ -50,14 +54,18 @@ const Modal = ({ onClose }) => {
           <p className={styles.text}>
             Посмотри, что мы для тебя приготовили 🔥
           </p>
-          <div className={styles.radio_group}>
-            {data
-              .filter((el) => el.isPopular && el.name !== 'навсегда')
-              .map((el) => (
-                <PlanRadioModal key={el.id} data={el} />
-              ))}
-          </div>
-          <Button size='small'>Начать тренироваться</Button>
+          <form className={styles.form_container} onSubmit={handleSubmit}>
+            <div className={styles.radio_group}>
+              {data
+                .filter((el) => el.isPopular && el.name !== 'навсегда')
+                .map((el) => (
+                  <PlanRadioModal key={el.id} data={el} />
+                ))}
+            </div>
+            <Button size='small' type='submit'>
+              Начать тренироваться
+            </Button>
+          </form>
         </div>
       </motion.dialog>
     </div>,

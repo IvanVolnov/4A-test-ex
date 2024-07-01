@@ -16,7 +16,7 @@ function DataContextProvider({ children }) {
         Math.round(((initPrice - el.price) * 100) / initPrice / 10) * 10;
       return { ...el, initPrice, discountValue };
     });
-    console.log(dataModified);
+    // console.log(dataModified);
     return dataModified;
   }
 

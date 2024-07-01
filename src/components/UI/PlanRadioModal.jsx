@@ -13,10 +13,12 @@ export default function PlanRadioModal(data) {
       />
       <div className={styles.item_name}>{name}</div>
       <div className={styles.radio_custom} />
-      <div className={styles.item_price}>{price}₽</div>
       <div className={styles.item_price_old}>{initPrice}₽</div>
-      <div className={styles.discount_container}>
-        <div className={styles.discount_text}>-{discountValue}%</div>
+      <div className={styles.new_price_container}>
+        <div className={styles.item_price}>{price}₽</div>
+        <div className={styles.discount_container}>
+          <div className={styles.discount_text}>-{discountValue}%</div>
+        </div>
       </div>
     </label>
   );

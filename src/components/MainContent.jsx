@@ -10,11 +10,11 @@ import { handleSubmit } from '../helpers/helpers';
 import styles from './MainContent.module.css';
 import CustomCheckbox from './UI/CustomCheckbox';
 import Button from './UI/Button';
+import { AnimatePresence } from 'framer-motion';
 
 export default function MainContent() {
   const { data, loading, error } = useContext(DataContext);
   const { discount, popup, setPopup } = useContext(TimerContext);
-  // console.log(data);
 
   function closeModal() {
     setPopup(false);
@@ -22,7 +22,9 @@ export default function MainContent() {
 
   return (
     <main className={styles.main_container}>
-      {popup && <Modal onClose={closeModal} />}
+      <AnimatePresence>
+        {popup && <Modal onClose={closeModal} />}
+      </AnimatePresence>
 
       <h1>Выберите подходящий тарифный план</h1>
       <div className={styles.content_container}>

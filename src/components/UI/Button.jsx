@@ -4,7 +4,7 @@ export default function Button({
   children,
   variant = 'dark',
   size = 'medium',
-  type = 'submit',
+  type = 'button',
 }) {
   return (
     <button

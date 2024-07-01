@@ -25,10 +25,11 @@
 }
 
 .content_container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1.25rem;
+  padding: 1.25rem;
 }
 
 .modalHeader {
@@ -94,10 +95,17 @@
   width: 100%;
 }
 
+.form_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .modalBody {
   margin-top: 10px;
 }
-@media (max-width: 650px) {
+@media (max-width: 800px) {
   .radio_group {
     flex-direction: column;
     gap: 0.38rem;
