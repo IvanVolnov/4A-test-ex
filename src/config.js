@@ -1,5 +1,5 @@
-const TIMER_VALUE = 1;
-const BLINKING_VALUE = 4;
-const POPUP_DELAY = 3;
+const TIMER_VALUE = 120;
+const BLINKING_VALUE = 30;
+const POPUP_DELAY = 2;
 
 export { TIMER_VALUE, BLINKING_VALUE, POPUP_DELAY };

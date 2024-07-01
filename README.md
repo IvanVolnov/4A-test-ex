@@ -1,8 +1,7 @@
-# React + Vite
+# 4A Consulting Frontend Developer Test Exercise
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains the test exercise for a frontend developer position at 4A Consulting, built using React, Framer Motion, HTML, and CSS.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Check out the live demo of the project [here](https://clinquant-scone-dd12cc.netlify.app/).
